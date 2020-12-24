@@ -1,7 +1,6 @@
 export default {
   //? https://uigradients.com
 
-  fancyRed: `linear-gradient( #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);`,
   fancyBlue: `linear-gradient( #21D4FD 0%, #B721FF 100%);`,
   slavaUkraini: `linear-gradient( #52ACFF 25%, #FFE32C 100%);`,
   lighty: `linear-gradient( #FFDEE9 0%, #B5FFFC 100%);`,
@@ -16,7 +15,6 @@ export default {
   loveCouple: `linear-gradient(#3a6186 0%, #89253e 100%)`,
   mauve: `linear-gradient(#42275a 0%, #734b6d 100%)`,
   sunset: `linear-gradient(#0b486b 0%, #f56217 100%)`,
-  morning: `linear-gradient(#ff5f6d 0%, #ffc371 100%)`,
   kingYna: `linear-gradient(#1a2a6c 0%, #b21f1f 50%, #fdbb2d 100%)`,
   argon: `linear-gradient(#03001e 1%, #7303c0 33%, #ec38bc 66%, #fdeff9 99%)`,
   velvetSun: `linear-gradient(#e1eec3 0%, #f05053 100%)`,
@@ -25,16 +23,12 @@ export default {
   terminal: `linear-gradient(#000000 0%, #0f9b0f 100%)`,
   relay: `linear-gradient(#3a1c71 0%, #d76d77 50%, #ffaf7b 100%)`,
   intuitivePurple: `linear-gradient(#da22ff 0%, #9733ee 100%)`,
-  aubergine: `linear-gradient(#aa076b 0%, #61045f 100%)`,
-  sunrise: `linear-gradient(#ff512f 0%, #f09819 100%)`,
   mojito: `linear-gradient(#1d976c 0%, #93f9b9 100%)`,
   mirage: `linear-gradient(#16222a 0%, #3a6073 100%)`,
-  kashmir: `linear-gradient(#614385 0%, #516395 100%)`,
   boraBora: `linear-gradient(#2bc0e4 0%, #eaecc6 100%)`,
   netflix: `linear-gradient(#8e0e00 0%, #1f1c18 100%)`,
   nighthawk: `linear-gradient(#2980b9 0%, #2c3e50 100%)`,
   dania: `linear-gradient(#be93c5 0%, #7bc6cc 100%)`,
   blackRose: `linear-gradient(#f4c4f3 0%, #fc67fa 100%)`,
-  army: `linear-gradient(#414d0b 0%, #727a17 0%)`,
   flare: 'linear-gradient(#f12711 0%, #f5af19 0%)',
 };
