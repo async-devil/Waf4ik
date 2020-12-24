@@ -3,7 +3,7 @@
 ## To install, please follow instructions:
 
 - `npm i` Installation command, need to be run once
-- `npm run start` To run localhost and nodemon
+- `npm run auto` To run localhost and nodemon
 
 ## To run TypeScript autocompile, instruction below:
 

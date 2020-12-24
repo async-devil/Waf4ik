@@ -4,7 +4,8 @@
   "description": "",
   "main": "./src/index.js",
   "scripts": {
-    "start": "nodemon ./src/index.js --watch ./src/*/*.* --watch ./public/*/*.*",
+    "start": "node ./src/index.js",
+    "auto": "nodemon ./src/index.js --watch ./src/*/*.* --watch ./public/*/*.*",
     "ts": "npx tsc --watch ./public/ts/*.ts --outDir ./public/js -t \"es3\" --sourceMap true -m \"es2020\"",
     "test": "jest"
   },
