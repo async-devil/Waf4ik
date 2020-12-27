@@ -23,6 +23,14 @@ rnd.backGround = gradient;
 let targetRotation: number = 0;
 let waf4ikSize: number = utilities.getWaf4ikSize(rnd);
 
+let isMobile: boolean = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+let maxParticlesAmount: number = 5000;
+let particlesOnClick: number = 50;
+
+if (isMobile) maxParticlesAmount = 1000;
+if (isMobile) particlesOnClick = 20;
+
 //*---------------------------------------------Creating waf4ik---------------------------------------------*/
 
 let waf4ikImg: HTMLImageElement = new Image();
@@ -40,7 +48,7 @@ let waf4ik: roundSprite = new roundSprite(
 //*-----------------------------Creating particles pool and setting particles everyTick--------------------------------------------------*/
 
 let prtcPool: ParticlesPool = new ParticlesPool();
-for (let i = 0; i < 5000; i++) {
+for (let i = 0; i < maxParticlesAmount; i++) {
   prtcPool.addDefaultParticle(rnd, waf4ik, CONFIG.MAX_DISTANCE, utilities.getWaf4ikSize(rnd) / 20);
 
   let prtc = prtcPool.particlesArr[i];
@@ -68,7 +76,7 @@ window.onclick = (point) => {
   //?click on waf4ik
   if (waf4ik.isPointOnSprite(point.x, point.y)) {
     targetRotation += 10;
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < particlesOnClick; i++) {
       //!amount of particles spawned every click is here
       let prtc: Particle = prtcPool.removeParticle();
       prtc.setDegree = utilities.getRandomArbitrary(CONFIG.MIN_DEGREES, CONFIG.MAX_DEGREES); //! Degrees change is here
