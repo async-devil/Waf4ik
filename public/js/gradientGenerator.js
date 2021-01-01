@@ -37,14 +37,14 @@ var gradientGenerator = /** @class */ (function () {
                     if (!options.theme || !catalog[options.theme])
                         return catalog.lighty;
                     if (options.log === true)
-                        console.log(options[options.theme]);
+                        console.log(catalog[options.theme]);
                     return catalog[options.theme];
                 }
                 if (options.log === true)
                     console.log(objectKey);
                 return catalog[objectKey];
             };
-            var choice = randomGradientChoice(true, { theme: ' ', log: true }); //! Static gradient choosing is here <-------------
+            var choice = randomGradientChoice(true, { theme: '', log: true }); //! Static gradient choosing is here <-------------
             var ctc = new CTC();
             ctc.set = choice;
             var list = ctc.getInfo;

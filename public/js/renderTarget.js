@@ -16,9 +16,6 @@ var RenderTarget = /** @class */ (function () {
     RenderTarget.prototype.addSprite = function (sprite) {
         return this.spriteArr.push(sprite);
     };
-    RenderTarget.prototype.removeSpreite = function (index) {
-        return this.spriteArr.splice(index, 1);
-    };
     RenderTarget.prototype.updateSize = function () {
         this.height = this.htmlElement.clientHeight;
         this.width = this.htmlElement.clientWidth;
@@ -37,9 +34,6 @@ var RenderTarget = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    RenderTarget.prototype.onResize = function (fn) {
-        this.canvas.onresize = fn();
-    };
     RenderTarget.prototype.getSprite = function (index) {
         return this.spriteArr[index];
     };
@@ -57,18 +51,26 @@ var RenderTarget = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
+    RenderTarget.prototype.drawLayer = function (index) {
+        for (var i = this.spriteArr.length; i > 0; i--) {
+            var value = this.spriteArr[i - 1];
+            if (value.layer == index) {
+                if (value.doEveryTick)
+                    value.everyTick.call(1);
+                if (value.isVisible)
+                    value.draw();
+            }
+        }
+    };
     RenderTarget.prototype.startEveryTick = function () {
         var _this = this;
         this.time2 = this.time1;
         this.time1 = performance.now();
         this.deltaTime = -1 * (this.time2 - this.time1) || 0;
         this.updateRND();
-        for (var i = this.spriteArr.length; i > 0; i--) {
-            var value = this.spriteArr[i - 1];
-            if (value.doEveryTick)
-                value.everyTick.call(1);
-            value.draw();
-        }
+        this.drawLayer(1);
+        this.drawLayer(2);
+        this.drawLayer(3);
         this.onUpdate();
         window.requestAnimationFrame(function () { return _this.startEveryTick(); });
     };

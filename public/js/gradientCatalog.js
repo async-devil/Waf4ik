@@ -1,4 +1,4 @@
-export default {
+var catalog = {
     //? https://uigradients.com
     fancyBlue: "linear-gradient( #21D4FD 0%, #B721FF 100%);",
     slavaUkraini: "linear-gradient( #52ACFF 25%, #FFE32C 100%);",
@@ -6,9 +6,7 @@ export default {
     mini: "linear-gradient(#30e8bf 0%, #ff8235 100%)",
     pacific: "linear-gradient(#34e89e 0%, #0f3443 100%)",
     honeyDew: "linear-gradient(#43c6ac 0%, #f8ffae 100%)",
-    rose: "linear-gradient(#e8cbc0 0%, #636fa4 100%)",
     radar: "linear-gradient(#a770ef 0%, #cf8bf3 50%, #fdb99b 100%)",
-    mauve: "linear-gradient(#42275a 0%, #734b6d 100%)",
     velvetSun: "linear-gradient(#e1eec3 0%, #f05053 100%)",
     crimsonTide: "linear-gradient(#642b73 0%, #c6426e 100%)",
     telegram: "linear-gradient(#1c92d2 0%, #f2fcfe 100%)",
@@ -29,4 +27,19 @@ export default {
     r12: 'linear-gradient(#0ac8e6 0%, #abd41f 50%, #fbae10 100%)',
     r13: 'linear-gradient(#9ea303 0%, #69be06 50%, #f38831 100%)'
 };
+// const generate = () => {
+//   let hexSymb = ['a', 'b', 'c', 'd', 'e', 'f', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+//   const generateHEXcolor = () => {
+//     let rGrad = [];
+//     for (let i = 0; i < 6; i += 1) {
+//       rGrad.push(hexSymb[utilities.getRandomArbitrary(0, hexSymb.length)]);
+//     }
+//     let result = rGrad.join('');
+//     return result;
+//   };
+//   catalog[
+//     `random`
+//   ] = `linear-gradient(#${generateHEXcolor()} 0%, #${generateHEXcolor()} 50%, #${generateHEXcolor()} 100%)`;
+// };
+export { catalog as default };
 //# sourceMappingURL=gradientCatalog.js.map

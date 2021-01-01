@@ -27,14 +27,26 @@ var Particle = /** @class */ (function () {
         this.setY = this.getY + this.gravity;
     };
     Particle.prototype.moveOnDegree = function () {
+        var speed = 0;
+        speed = (this.rt.deltaTime * this.gravity) / 16;
         var rad = utilities.degreesToRadians(this.deg);
         var changes = {
-            x: this.gravity * Math.cos(rad),
-            y: this.gravity * Math.sin(rad)
+            x: speed * Math.cos(rad),
+            y: speed * Math.sin(rad)
         };
         this.setX = this.getX + changes.x;
         this.setY = this.getY + changes.y;
     };
+    Object.defineProperty(Particle.prototype, "bIsVisible", {
+        get: function () {
+            return this.particle.isVisible;
+        },
+        set: function (isVisible) {
+            this.particle.isVisible = isVisible;
+        },
+        enumerable: false,
+        configurable: true
+    });
     Object.defineProperty(Particle.prototype, "setX", {
         set: function (x) {
             this.particle.x = x;

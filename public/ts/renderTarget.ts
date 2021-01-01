@@ -1,4 +1,5 @@
 import { roundSprite } from './sprite.js';
+import { RectSprite } from './sprite.js';
 
 export class RenderTarget {
   private readonly canvas: HTMLCanvasElement;
@@ -10,7 +11,7 @@ export class RenderTarget {
   private height: number;
 
   public backGround: string | CanvasGradient | CanvasPattern;
-  private spriteArr: roundSprite[];
+  private spriteArr: any; //roundSprite[] | RectSprite[];
 
   public deltaTime: number;
   private time1: number;
@@ -37,12 +38,8 @@ export class RenderTarget {
     this.spriteArr = [];
   }
 
-  addSprite(sprite: roundSprite): number {
+  addSprite(sprite: roundSprite | RectSprite): number {
     return this.spriteArr.push(sprite);
-  }
-
-  removeSpreite(index: number) {
-    return this.spriteArr.splice(index, 1);
   }
 
   updateSize() {
@@ -62,11 +59,6 @@ export class RenderTarget {
   get getCTX() {
     return this.ctx;
   }
-
-  onResize(fn) {
-    this.canvas.onresize = fn();
-  }
-
   getSprite(index: number) {
     return this.spriteArr[index];
   }
@@ -77,19 +69,24 @@ export class RenderTarget {
   get getWidth() {
     return this.width;
   }
-
+  drawLayer(index: number) {
+    for (let i = this.spriteArr.length; i > 0; i--) {
+      let value = this.spriteArr[i - 1];
+      if (value.layer == index) {
+        if (value.doEveryTick) value.everyTick.call(1);
+        if (value.isVisible) value.draw();
+      }
+    }
+  }
   startEveryTick() {
     this.time2 = this.time1;
     this.time1 = performance.now();
     this.deltaTime = -1 * (this.time2 - this.time1) || 0;
 
     this.updateRND();
-
-    for (let i = this.spriteArr.length; i > 0; i--) {
-      let value = this.spriteArr[i - 1];
-      if (value.doEveryTick) value.everyTick.call(1);
-      value.draw();
-    }
+    this.drawLayer(1);
+    this.drawLayer(2);
+    this.drawLayer(3);
 
     this.onUpdate();
     window.requestAnimationFrame(() => this.startEveryTick());

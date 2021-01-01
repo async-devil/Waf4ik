@@ -41,7 +41,7 @@ export class gradientGenerator {
       const randomGradientChoice = (choice: boolean, options?: any) => {
         if (!choice) {
           if (!options.theme || !catalog[options.theme]) return catalog.lighty;
-          if (options.log === true) console.log(options[options.theme]);
+          if (options.log === true) console.log(catalog[options.theme]);
 
           return catalog[options.theme];
         }
@@ -49,7 +49,7 @@ export class gradientGenerator {
         return catalog[objectKey];
       };
 
-      const choice = randomGradientChoice(true, { theme: ' ', log: true }); //! Static gradient choosing is here <-------------
+      const choice = randomGradientChoice(true, { theme: '', log: true }); //! Static gradient choosing is here <-------------
 
       const ctc = new CTC();
       ctc.set = choice;

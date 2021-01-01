@@ -1,6 +1,7 @@
 /*------------------------------------*/
 const path = require('path');
 const express = require('express');
+const hbs = require('hbs');
 
 const publicDirPath = path.join(__dirname, '../public');
 const viewsDirPath = path.join(__dirname, '../public/views');
@@ -15,6 +16,10 @@ app.use(express.static('public'));
 /*------------------------------------*/
 app.get('', (req, res) => {
   res.sendFile(path.join(viewsDirPath, './index.html'));
+});
+
+app.get('/stalin', (req, res) => {
+  res.sendFile(path.join(viewsDirPath, './stalin.html'));
 });
 /*------------------------------------*/
 

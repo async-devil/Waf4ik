@@ -44,14 +44,24 @@ class Particle {
   }
 
   public moveOnDegree() {
+    let speed: number = 0;
+    speed = (this.rt.deltaTime * this.gravity) / 16;
     const rad = utilities.degreesToRadians(this.deg);
     const changes = {
-      x: this.gravity * Math.cos(rad),
-      y: this.gravity * Math.sin(rad),
+      x: speed * Math.cos(rad),
+      y: speed * Math.sin(rad),
     };
 
     this.setX = this.getX + changes.x;
     this.setY = this.getY + changes.y;
+  }
+
+  public set bIsVisible(isVisible) {
+    this.particle.isVisible = isVisible;
+  }
+
+  public get bIsVisible() {
+    return this.particle.isVisible;
   }
 
   public set setX(x: number) {

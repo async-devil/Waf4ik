@@ -55,8 +55,8 @@ var utilities = /** @class */ (function () {
         var _this = this;
         var gradient;
         var length = this.getNumberOfObjectValues(catalog);
-        var randNum = this.getRandomArbitrary(0, length); /////////////////////////////////////////////////////
-        var objectKey = Object.keys(catalog)[randNum]; /////////////////////////////////////////11111111111111111111111111
+        var randNum = this.getRandomArbitrary(0, length);
+        var objectKey = Object.keys(catalog)[randNum];
         var generateGradient = function () {
             gradient = ctx.createLinearGradient(0, 0, _this.getScreenWidth(), _this.getScreenHeigt());
             var randomGradientChoice = function (choice, options) {

@@ -59,8 +59,8 @@ export class utilities {
   static getGradient(ctx: CanvasRenderingContext2D) {
     let gradient: CanvasGradient;
     const length = this.getNumberOfObjectValues(catalog);
-    const randNum = this.getRandomArbitrary(0, length); /////////////////////////////////////////////////////
-    const objectKey = Object.keys(catalog)[randNum]; /////////////////////////////////////////11111111111111111111111111
+    const randNum = this.getRandomArbitrary(0, length); 
+    const objectKey = Object.keys(catalog)[randNum]; 
 
     const generateGradient = () => {
       gradient = ctx.createLinearGradient(0, 0, this.getScreenWidth(), this.getScreenHeigt());

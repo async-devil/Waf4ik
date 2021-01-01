@@ -16,11 +16,11 @@ var ParticlesPool = /** @class */ (function () {
         var params = new Params();
         params.x = prtc.getX;
         params.y = prtc.getY;
+        params.isVisible = prtc.bIsVisible;
         params.radius = prtc.particle.radius;
         params.doEveryTick = prtc.bDoEveryTick;
         //disabling particle to store it in the pool
-        prtc.setX = 100;
-        prtc.setY = -100000;
+        prtc.bIsVisible = false;
         prtc.bDoEveryTick = false;
         //saving params and particle in the pool
         this.particlesParams.push(params);
@@ -36,6 +36,7 @@ var ParticlesPool = /** @class */ (function () {
             prtc.setY = params.y;
             prtc.particle.radius = params.radius;
             prtc.bDoEveryTick = params.doEveryTick;
+            prtc.bIsVisible = params.isVisible;
             return prtc;
         }
         catch (e) {

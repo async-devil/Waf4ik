@@ -9,6 +9,7 @@ class Params {
   x: number;
   y: number;
   radius: number;
+  isVisible: boolean;
 }
 
 class ParticlesPool {
@@ -20,12 +21,12 @@ class ParticlesPool {
     let params: Params = new Params();
     params.x = prtc.getX;
     params.y = prtc.getY;
+    params.isVisible = prtc.bIsVisible;
     params.radius = prtc.particle.radius;
     params.doEveryTick = prtc.bDoEveryTick;
 
     //disabling particle to store it in the pool
-    prtc.setX = 100;
-    prtc.setY = -100000;
+    prtc.bIsVisible = false;
     prtc.bDoEveryTick = false;
 
     //saving params and particle in the pool
@@ -43,6 +44,7 @@ class ParticlesPool {
       prtc.setY = params.y;
       prtc.particle.radius = params.radius;
       prtc.bDoEveryTick = params.doEveryTick;
+      prtc.bIsVisible = params.isVisible;
       return prtc;
     } catch (e) {
       console.warn('Not enough particles in the pool');
