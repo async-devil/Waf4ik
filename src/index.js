@@ -1,7 +1,6 @@
 /*------------------------------------*/
 const path = require('path');
 const express = require('express');
-const hbs = require('hbs');
 
 const publicDirPath = path.join(__dirname, '../public');
 const viewsDirPath = path.join(__dirname, '../public/views');
