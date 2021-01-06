@@ -1,80 +1,101 @@
-var RenderTarget = /** @class */ (function () {
-    function RenderTarget(document, canvasName, backGround) {
-        if (canvasName === void 0) { canvasName = '0'; }
-        if (backGround === void 0) { backGround = 'white'; }
-        this.newProperty = this;
+export class RenderTarget {
+    constructor(document, canvasName = '0', backGround = 'white') {
+        this.onresize = () => { };
+        this.enableRNDonClick = true;
+        this.enableOnResize = true;
+        this.objectsArr = [];
+        //creating canvas
         this.canvas = document.getElementById(canvasName);
         this.ctx = this.canvas.getContext('2d');
         this.htmlElement = document.getElementsByTagName('html')[0];
-        this.height = this.htmlElement.clientHeight;
-        this.width = this.htmlElement.clientWidth;
-        this.canvas.height = this.height;
-        this.canvas.width = this.width;
+        //setting canvas size
+        this.canvas.height = this.htmlElement.clientHeight;
+        this.canvas.width = this.htmlElement.clientWidth;
+        //setting ivents
         this.backGround = backGround;
-        this.spriteArr = [];
+        window.onclick = (point) => {
+            this.onClick(point);
+        };
+        window.onresize = () => {
+            this.onResize();
+        };
     }
-    RenderTarget.prototype.addSprite = function (sprite) {
-        return this.spriteArr.push(sprite);
-    };
-    RenderTarget.prototype.updateSize = function () {
-        this.height = this.htmlElement.clientHeight;
-        this.width = this.htmlElement.clientWidth;
-        this.canvas.height = this.height;
-        this.canvas.width = this.width;
-    };
-    RenderTarget.prototype.updateRND = function () {
+    get DeltaTime() {
+        return this.deltaTime;
+    }
+    onResize() {
+        this.updateSize();
+        for (let i = 0; i < this.objectsArr.length; i++) {
+            let value = this.objectsArr[i];
+            if (value.doOnResize)
+                value.onresize();
+        }
+        if (this.enableOnResize)
+            this.onresize();
+    }
+    onClick(point) {
+        for (let i = 0; i < this.objectsArr.length; i++) {
+            if (this.objectsArr[i].doOnClick)
+                this.objectsArr[i].onClick(point);
+        }
+        if (this.enableRNDonClick)
+            this._onClick(point);
+    }
+    set onclick(fx) {
+        this._onClick = fx;
+    }
+    addObject(object) {
+        this.objectsArr.push(object);
+    }
+    get height() {
+        return this.canvas.height;
+    }
+    get width() {
+        return this.canvas.width;
+    }
+    updateSize() {
+        this.canvas.height = this.htmlElement.clientHeight;
+        this.canvas.width = this.htmlElement.clientWidth;
+    }
+    updateBackground() {
+        this.ctx.fillStyle = this.backGround;
+        this.ctx.fillRect(0, 0, this.width, this.height);
+    }
+    updateRND() {
         this.updateSize();
         this.ctx.fillStyle = this.backGround;
         this.ctx.fillRect(0, 0, this.width, this.height);
-    };
-    Object.defineProperty(RenderTarget.prototype, "getCTX", {
-        get: function () {
-            return this.ctx;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    RenderTarget.prototype.getSprite = function (index) {
-        return this.spriteArr[index];
-    };
-    Object.defineProperty(RenderTarget.prototype, "getHeight", {
-        get: function () {
-            return this.height;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    Object.defineProperty(RenderTarget.prototype, "getWidth", {
-        get: function () {
-            return this.width;
-        },
-        enumerable: false,
-        configurable: true
-    });
-    RenderTarget.prototype.drawLayer = function (index) {
-        for (var i = this.spriteArr.length; i > 0; i--) {
-            var value = this.spriteArr[i - 1];
+    }
+    get getCTX() {
+        return this.ctx;
+    }
+    get getHeight() {
+        return this.height;
+    }
+    get getWidth() {
+        return this.width;
+    }
+    drawLayer(index) {
+        for (let i = this.objectsArr.length; i > 0; i--) {
+            let value = this.objectsArr[i - 1];
             if (value.layer == index) {
                 if (value.doEveryTick)
-                    value.everyTick.call(1);
+                    value.everyTick();
                 if (value.isVisible)
                     value.draw();
             }
         }
-    };
-    RenderTarget.prototype.startEveryTick = function () {
-        var _this = this;
+    }
+    startGame() {
         this.time2 = this.time1;
         this.time1 = performance.now();
         this.deltaTime = -1 * (this.time2 - this.time1) || 0;
-        this.updateRND();
+        this.updateBackground();
         this.drawLayer(1);
         this.drawLayer(2);
         this.drawLayer(3);
         this.onUpdate();
-        window.requestAnimationFrame(function () { return _this.startEveryTick(); });
-    };
-    return RenderTarget;
-}());
-export { RenderTarget };
+        window.requestAnimationFrame(() => this.startGame());
+    }
+}
 //# sourceMappingURL=renderTarget.js.map

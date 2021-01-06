@@ -31,19 +31,4 @@ const catalog = {
   r13: 'linear-gradient(#9ea303 0%, #69be06 50%, #f38831 100%)',
 };
 
-// const generate = () => {
-//   let hexSymb = ['a', 'b', 'c', 'd', 'e', 'f', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
-//   const generateHEXcolor = () => {
-//     let rGrad = [];
-//     for (let i = 0; i < 6; i += 1) {
-//       rGrad.push(hexSymb[utilities.getRandomArbitrary(0, hexSymb.length)]);
-//     }
-//     let result = rGrad.join('');
-//     return result;
-//   };
-//   catalog[
-//     `random`
-//   ] = `linear-gradient(#${generateHEXcolor()} 0%, #${generateHEXcolor()} 50%, #${generateHEXcolor()} 100%)`;
-// };
-
 export { catalog as default };

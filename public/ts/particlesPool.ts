@@ -19,15 +19,15 @@ class ParticlesPool {
   addParticle(prtc: Particle) {
     // creating a copy of particles variable
     let params: Params = new Params();
-    params.x = prtc.getX;
-    params.y = prtc.getY;
-    params.isVisible = prtc.bIsVisible;
-    params.radius = prtc.particle.radius;
-    params.doEveryTick = prtc.bDoEveryTick;
+    params.x = prtc.x;
+    params.y = prtc.y;
+    params.isVisible = prtc.isVisible;
+    params.radius = prtc.radius;
+    params.doEveryTick = prtc.doEveryTick;
 
     //disabling particle to store it in the pool
-    prtc.bIsVisible = false;
-    prtc.bDoEveryTick = false;
+    prtc.isVisible = false;
+    prtc.doEveryTick = false;
 
     //saving params and particle in the pool
     this.particlesParams.push(params);
@@ -40,11 +40,11 @@ class ParticlesPool {
 
     //restoring variables of particle
     try {
-      prtc.setX = params.x;
-      prtc.setY = params.y;
-      prtc.particle.radius = params.radius;
-      prtc.bDoEveryTick = params.doEveryTick;
-      prtc.bIsVisible = params.isVisible;
+      prtc.x = params.x;
+      prtc.y = params.y;
+      prtc.radius = params.radius;
+      prtc.doEveryTick = params.doEveryTick;
+      prtc.isVisible = params.isVisible;
       return prtc;
     } catch (e) {
       console.warn('Not enough particles in the pool');

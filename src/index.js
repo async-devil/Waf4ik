@@ -18,7 +18,7 @@ app.get('', (req, res) => {
 });
 
 app.get('/stalin', (req, res) => {
-  res.sendFile(path.join(viewsDirPath, './stalin.html'));
+  res.send('RIP Stalin');
 });
 /*------------------------------------*/
 

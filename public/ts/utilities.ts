@@ -7,23 +7,23 @@ export class utilities {
   static readonly htmlElement: HTMLHtmlElement = document.getElementsByTagName('html')[0];
   static getWaf4ikSize(rnd: RenderTarget) {
     let smallestSize: number = 0;
-    if (rnd.getHeight < rnd.getWidth) smallestSize = rnd.getHeight;
-    else smallestSize = rnd.getWidth;
+    if (rnd.getHeight < rnd.width) smallestSize = rnd.getHeight;
+    else smallestSize = rnd.width;
     return smallestSize / 4;
   }
   static setParticleEveryTick(rnd: RenderTarget, prtcPool: ParticlesPool, prtc: Particle) {
     prtc.everyTick = () => {
       prtc.moveOnDegree();
 
-      if (prtc.getY > rnd.getHeight + 300) {
+      if (prtc.y > rnd.getHeight + 300) {
         prtc.setRandomCoordinates();
         prtcPool.addParticle(prtc);
       }
-      if (prtc.getX > rnd.getWidth + 300) {
+      if (prtc.x > rnd.width + 300) {
         prtc.setRandomCoordinates();
         prtcPool.addParticle(prtc);
       }
-      if (prtc.getX < -300) {
+      if (prtc.x < -300) {
         prtc.setRandomCoordinates();
         prtcPool.addParticle(prtc);
       }
@@ -52,15 +52,14 @@ export class utilities {
   }
 
   static getRandomArbitrary(min: number, max: number): number {
-    ///111111
     let rand = min - 0.5 + Math.random() * (max - min);
     return Math.round(rand);
   }
   static getGradient(ctx: CanvasRenderingContext2D) {
     let gradient: CanvasGradient;
     const length = this.getNumberOfObjectValues(catalog);
-    const randNum = this.getRandomArbitrary(0, length); 
-    const objectKey = Object.keys(catalog)[randNum]; 
+    const randNum = this.getRandomArbitrary(0, length);
+    const objectKey = Object.keys(catalog)[randNum];
 
     const generateGradient = () => {
       gradient = ctx.createLinearGradient(0, 0, this.getScreenWidth(), this.getScreenHeigt());
