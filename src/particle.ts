@@ -1,8 +1,8 @@
-import { roundSprite } from './sprite.js';
-import { RenderTarget } from './renderTarget.js';
-import { utilities } from './utilities.js';
-import CONFIG from '../configs/config.js';
-import { roundObjectBase } from './object.js';
+import { roundSprite } from './sprite';
+import { RenderTarget } from './renderTarget';
+import { utilities } from './utilities';
+import CONFIG from './config';
+import { roundObjectBase } from './object';
 
 class Particle extends roundObjectBase {
   private waf4ik: roundSprite;

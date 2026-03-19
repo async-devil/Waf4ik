@@ -1,4 +1,4 @@
-import CSSToCanavas from '../public/ts/cssToCanvas';
+import CSSToCanavas from '../src/cssToCanvas';
 
 describe('isCSS tests', () => {
   describe('Correct values', () => {

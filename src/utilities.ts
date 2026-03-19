@@ -1,8 +1,8 @@
-import catalog from './gradientCatalog.js';
-import CTC from './cssToCanvas.js';
-import Particle from './particle.js';
-import ParticlesPool from './particlesPool.js';
-import { RenderTarget } from './renderTarget.js';
+import catalog from './gradientCatalog';
+import CTC from './cssToCanvas';
+import Particle from './particle';
+import ParticlesPool from './particlesPool';
+import { RenderTarget } from './renderTarget';
 export class utilities {
   static readonly htmlElement: HTMLHtmlElement = document.getElementsByTagName('html')[0];
   static getWaf4ikSize(rnd: RenderTarget) {

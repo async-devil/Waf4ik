@@ -1,5 +1,5 @@
-import catalog from './gradientCatalog.js';
-import CTC from './cssToCanvas.js';
+import catalog from './gradientCatalog';
+import CTC from './cssToCanvas';
 
 export class gradientGenerator {
   readonly htmlElement: HTMLHtmlElement = document.getElementsByTagName('html')[0];

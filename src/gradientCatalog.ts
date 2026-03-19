@@ -1,4 +1,4 @@
-import { utilities } from './utilities.js';
+import { utilities } from './utilities';
 
 const catalog = {
   //? https://uigradients.com

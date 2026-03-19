@@ -1,8 +1,8 @@
-import { RenderTarget } from './renderTarget.js';
-import Particle from './particle.js';
-import { roundSprite } from './sprite.js';
-import { utilities } from './utilities.js';
-import CONFIG from '../configs/config.js';
+import { RenderTarget } from './renderTarget';
+import Particle from './particle';
+import { roundSprite } from './sprite';
+import { utilities } from './utilities';
+import CONFIG from './config';
 
 class Params {
   doEveryTick: boolean;

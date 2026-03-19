@@ -1,4 +1,4 @@
-import { RenderTarget } from './renderTarget.js';
+import { RenderTarget } from './renderTarget';
 
 export class objectBase {
   //transform

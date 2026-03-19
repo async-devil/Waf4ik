@@ -1,15 +1,15 @@
 //*---------------------------------------------Imports---------------------------------------------*/
-import { RenderTarget } from './renderTarget.js';
-import { roundSprite } from './sprite.js';
-import { RectSprite } from './sprite.js';
-import { gradientGenerator } from './gradientGenerator.js';
-import Particle from './particle.js';
-import ParticlesPool from './particlesPool.js';
-import { utilities } from './utilities.js';
-import CONFIG from '../configs/config.js';
-import { Menu, MenuButton } from './menu.js';
-import { Text } from './text.js';
-import canvasTxt, * as canvasTXT from './canvasTXT.js';
+import { RenderTarget } from './renderTarget';
+import { roundSprite } from './sprite';
+import { RectSprite } from './sprite';
+import { gradientGenerator } from './gradientGenerator';
+import Particle from './particle';
+import ParticlesPool from './particlesPool';
+import { utilities } from './utilities';
+import CONFIG from './config';
+import { Menu, MenuButton } from './menu';
+import { Text } from './text';
+import canvasTxt, * as canvasTXT from './canvasTXT';
 
 //*------------------------------------------------------------------------------------------*/
 //* Creating renderTarget
@@ -34,7 +34,7 @@ let menuSize: number = rnd.width / 3;
 //*---------------------------------------------Creating waf4ik---------------------------------------------*/
 
 let waf4ikImg: HTMLImageElement = new Image();
-waf4ikImg.src = './img/1.png';
+waf4ikImg.src = './assets/img/1.png';
 
 let waf4ik: roundSprite = new roundSprite(rnd, waf4ikImg);
 waf4ik.x = rnd.width / 2;
@@ -43,7 +43,7 @@ waf4ik.radius = waf4ikSize;
 
 //*----------------------------------------Creating ui--------------------------------------------------*/
 let menuButtonImg: HTMLImageElement = new Image();
-menuButtonImg.src = './img/menu.png';
+menuButtonImg.src = './assets/img/menu.png';
 let openButton: RectSprite = new RectSprite(rnd, menuButtonImg);
 
 openButton.width = rnd.height / 20;
@@ -54,7 +54,7 @@ openButton.y = openButton.height + 10;
 openButton.layer = 3;
 
 let closeButtonImg: HTMLImageElement = new Image();
-closeButtonImg.src = './img/close.png';
+closeButtonImg.src = './assets/img/close.png';
 let closeButton: RectSprite = new RectSprite(rnd, closeButtonImg);
 closeButton.width = rnd.height / 20;
 closeButton.height = rnd.height / 20;
@@ -75,7 +75,7 @@ menu.layer = 2;
 
 let leftButton1: MenuButton = new MenuButton(rnd, 1, true, {
   isColor: false,
-  fill: '../img/minimum-speed.png',
+  fill: '../assets/img/minimum-speed.png',
 });
 leftButton1.onclick = () => {
   rotationSpeed -= 1.5;
@@ -84,7 +84,7 @@ leftButton1.onclick = () => {
 
 let rightButton1: MenuButton = new MenuButton(rnd, 1, false, {
   isColor: false,
-  fill: '../img/maximum-speed.png',
+  fill: '../assets/img/maximum-speed.png',
 });
 rightButton1.onclick = () => {
   rotationSpeed += 1.5;
@@ -93,7 +93,7 @@ rightButton1.onclick = () => {
 
 let leftButton2: MenuButton = new MenuButton(rnd, 2, true, {
   isColor: false,
-  fill: '../img/remove.png',
+  fill: '../assets/img/remove.png',
 });
 leftButton2.onclick = () => {
   leftButton2.OnClick();
@@ -102,7 +102,7 @@ leftButton2.onclick = () => {
 
 let rightButton2: MenuButton = new MenuButton(rnd, 2, false, {
   isColor: false,
-  fill: '../img/add.png',
+  fill: '../assets/img/add.png',
 });
 rightButton2.onclick = () => {
   rightButton2.OnClick();

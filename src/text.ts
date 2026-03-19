@@ -1,6 +1,6 @@
-import { RenderTarget } from './renderTarget.js';
-import canvasTxt, * as canvasTXT from './canvasTXT.js';
-import { objectBase } from './object.js';
+import { RenderTarget } from './renderTarget';
+import canvasTxt, * as canvasTXT from './canvasTXT';
+import { objectBase } from './object';
 export class Text extends objectBase {
   text: string = 'default string';
   font: string = 'Arial';

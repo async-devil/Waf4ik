@@ -1,7 +1,7 @@
-import { RenderTarget } from './renderTarget.js';
-import { objectBase } from './object.js';
-import { rectObjectBase } from './object.js';
-import { roundObjectBase } from './object.js';
+import { RenderTarget } from './renderTarget';
+import { objectBase } from './object';
+import { rectObjectBase } from './object';
+import { roundObjectBase } from './object';
 
 export class roundSprite extends roundObjectBase {
   constructor(rt: RenderTarget, image: HTMLImageElement | string) {

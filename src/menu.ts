@@ -1,5 +1,5 @@
-import { rectObjectBase } from './object.js';
-import { RenderTarget } from './renderTarget.js';
+import { rectObjectBase } from './object';
+import { RenderTarget } from './renderTarget';
 
 class MenuButton extends rectObjectBase {
   readonly maxRows: number = 3;
